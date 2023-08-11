@@ -18,10 +18,6 @@
               <%= f.password_field :password, autocomplete: "current-password", class: "form__input", placeholder: "Enter password" %>
             </div>
             <div class="row">
-              <%= f.check_box :remember_me %>
-              <%= f.label :remember_me %>
-            </div>
-            <div class="row">
               <%= f.submit 'Log In', class: "btn" %>
             </div>
           <% end %>
