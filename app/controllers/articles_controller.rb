@@ -43,6 +43,14 @@ def show_articles
     end		
   end	
 
+  def destroy
+    @article = Article.find(params[:id])
+  	respond_to do |format|
+			@article.destroy
+			format.js { render :file => "articles/destroy.js.erb", locals: {:message => "Article deleted Successfully" }}
+    end
+  end
+
   private
 
   def article_params

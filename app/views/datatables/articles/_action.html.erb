@@ -3,5 +3,8 @@
     <a  href='/articles/edit/<%= record.id %>' data-remote='true'>
       <i class='fa fa-pencil-square-o' aria-hidden='true'></i>
     </a>
+    <%=link_to article_path(:id => record.id),:method=> 'delete',:remote=>true, :data=>{:confirm=>"Are you sure?"} do %>
+      <i class="fa fa-trash" aria-hidden="true"></i>
+    <% end %>
   </div>
 <%end%>
