@@ -1,0 +1,13 @@
+<% if @article.errors.any? %>
+  $('#error_explanation').html("<%= escape_javascript render(:partial => 'layouts/errors', :locals => {:obj => @article}) %>")
+  $('#error_explanation').show();
+  $('#error_explanation').delay(2500).fadeOut();
+  $('.alert_div').hide();
+<% else %>
+  $("#new-article").modal('toggle');
+  $(".alert_message").html('<%=message%>');
+  $('.alert_div').show();
+  $('.alert_div').delay(2500).fadeOut();
+  var t = $('#articles-table').DataTable();
+  t.ajax.reload();
+<% end %>

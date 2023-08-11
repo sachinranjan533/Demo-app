@@ -10,6 +10,43 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require font-awesome
+ *= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
  *= require_tree .
  *= require_self
  */
+
+#main_table tr th {
+  color: white;
+  background: #004A2F;
+  padding: 5px;
+}
+
+.main_table tr:first-child th {
+    color: white;
+    background: #004A2F;
+    padding: 5px;
+}
+
+.table-bordered > tbody > tr:hover {
+  background: rgba(251, 218, 98, 0.85) !important;
+}
+
+.btn-primary {
+  background: #004b30 !important;
+  color: #ffffff;
+}
+
+h2 {
+  margin-top: 0px !important;
+}
+
+.dataTables_length{
+    display: inline-block;
+    float: right;
+    padding-left: 10px;
+}
+.dataTables_paginate.paging_full_numbers{
+  display: inline-flex;
+  float: right;
+}

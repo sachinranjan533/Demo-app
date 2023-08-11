@@ -1,0 +1,16 @@
+<div class="alert alert-danger alert-dismissible">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
+    </button>
+  <h4><%= pluralize(obj.errors.count, "error") %> prohibited this form from being saved:</h4>
+  <ul>
+    <% obj.errors.each do |atr, msg| %>
+      <li>
+        <% if atr.to_s.include? "base" %>
+          <%= msg %>
+        <% else %>
+          <%= obj.errors.full_message(atr, msg) %>
+        <%end%>  
+      </li>
+    <% end %>
+  </ul>
+</div>
