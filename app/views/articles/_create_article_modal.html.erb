@@ -1,0 +1,49 @@
+<div class="modal fade" id="new-article" tabindex="-1" role="dialog" 
+  aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <button type="button" class="close" 
+          data-dismiss="modal">
+        <span aria-hidden="true">&times;</span>
+        <span class="sr-only">Close</span>
+        </button>
+        <h4 class="modal-title" id="myModalLabel">
+          <%=@header%>
+        </h4>
+      </div>
+      <!-- Modal Body -->
+      <%= form_for obj, :remote => true do |f| %>
+      <div class="modal-body">
+      <div id="error_explanation" hidden style="margin-bottom: 20px;"></div>
+        <div class="row">
+          <div class="col-md-12 form-group">
+            <div class="row">
+              <div class="col-md-4">
+                 <label>Name:</label>
+              </div>
+              <div class="col-md-8">
+                <%= f.text_field :title, :class => "form-control", :autocomplete => :off %>    
+              </div>
+            </div>
+          </div>
+
+         
+        </div>  
+    </div>
+    <div class="modal-footer">
+      <div class="col-md-12 zero-padding">
+        <div class="col-md-6">   
+        </div>
+        <div class="col-md-6 form-group zero-padding">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button> 
+          <%= f.submit "Submit", :class => 'btn btn-primary' %>
+        </div>
+      </div>
+      
+    </div>
+  <% end %>
+    </div>
+  </div>
+</div>

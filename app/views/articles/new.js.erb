@@ -1,0 +1,2 @@
+$('.create_modal_body').html("<%= escape_javascript render(:partial => 'create_article_modal', :locals => {:obj => @article, :header => @header}) %>");
+$('#new-article').modal();

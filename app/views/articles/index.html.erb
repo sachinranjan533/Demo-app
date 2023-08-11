@@ -1,0 +1,67 @@
+<div class="container-fluid">
+  <div class="alert alert-success alert-dismissible alert_div" role="alert" style="display:none;">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
+    </button>
+    <strong class="alert_message"></strong>
+  </div>
+  <div class="row">
+    <div class="col-md-12" style="padding:0;">
+      <div class="col-md-6" style="padding:0;">
+        <h2>Roles</h2>
+      </div>
+      <div class="col-md-6" style="text-align:right;padding:0;">
+        <%= link_to(new_article_path, class: "btn red btn btn-primary btn-lg animated-button", :remote => true) do %>
+          <span>Add Role </span> 
+        <%end%>
+      </div>
+    </div>
+    <div>
+      <table class="table table-bordered table-hover main_table text-center" id="roles-table" width="100%">
+        <thead>
+           <tr>
+            <th>Name</th>            
+            <th>Description</th>            
+            <th>Slug</th>            
+            <th>Created_at</th>       
+            <th>Updated_at</th>
+            <th>Action</th>       
+           </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="create_modal_body"></div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    var table = $('#roles-table').DataTable({
+        columns: [
+          {data: 'name', 'sortable': false},
+          {data: 'description', 'sortable': false},
+          {data: 'slug', 'sortable': false},
+          {data: 'created_at', 'sortable': false},
+          {data: 'updated_at', 'sortable': false},
+          {data: 'action', 'sortable': false}
+        ],
+        "processing": true,
+        "serverSide": true,
+        "ajax": '/roles/show_roles',
+        "pagingType": "full_numbers",
+        "dom": '<"top"lp>rt<"bottom"i><"clear">',
+        orderCellsTop: true,
+        sServerMethod: "POST",
+        "fnRowCallback": function(nRow, aData, iDisplayIndex, iDisplayIndexFull) {
+            $('td:eq(5)', nRow).addClass("text-right");
+        }
+    });
+
+    $(document).on('keyup', '#role_name',function (){
+      var text = $(this).val();
+      var slug = text.toLowerCase().replace(/[^\w ]+/g,'').replace(/ +/g,'_');
+      $("#role_slug").val(slug);
+    });
+  });
+</script>
