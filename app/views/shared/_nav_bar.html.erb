@@ -1,15 +1,15 @@
 <nav class="navbar navbar-default">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <h4><%= current_user.present? ? "Welcome #{current_user.email}" : 'DemoApp' %></h4>
-        </div>
-        <ul class="nav navbar-nav navbar-right">
-            <% if user_signed_in? %>
-            <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete %></li>
-            <% else %>
-            <li><%= link_to 'Log In', new_user_session_path %></li>
-            <li><%= link_to 'Sign Up', new_user_registration_path %></li>
-            <% end %>
-        </ul>
-    </div>
+  <div class="container-fluid">
+      <div class="navbar-header">
+          <h4><%= current_user.present? ? "Welcome #{current_user.email}" : 'DemoApp' %></h4>
+      </div>
+      <ul class="nav navbar-nav navbar-right">
+        <% if user_signed_in? %>
+          <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to 'Log In', new_user_session_path, :class => "#{active_menu_class?(new_user_session_path)}" %></li>
+          <li><%= link_to 'Sign Up', new_user_registration_path, :class => "#{active_menu_class?(new_user_registration_path)}" %></li>
+        <% end %>
+      </ul>
+  </div>
 </nav>
